@@ -1,50 +1,47 @@
-/******************************************************************************
-
-Welcome to GDB Online.
-  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
-  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
-  Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
-#include <stdio.h>
+#include<stdio.h>
 
 int main()
+
 {
-    //Declarar variables
-    float numero_1;
-    float numero_2;
-    float resultado;
-    char opcion;
+    int n,i,i_2,i_3;
     
-    //entrada de datos
-    printf("ingrese numero 1");
-    scanf("%f", &numero_1);
+    scanf("%i",&n);
     
-    printf("ingrese numero 2");
-    scanf("%f", &numero_2);
-    
-    printf("ingrese la opcion de s,r,d,m");
-    scanf(" %c", &opcion); 
-    
-    //procesar los datos
-    
-    switch (opcion)
+    for (i=0;i<n;i++)
     {
-        case 's' :
-            resultado = numero_1 + numero_2;
-            break;
-        case 'r' :
-            resultado = numero_1 - numero_2;
-            break;
-        case 'd' :
-            resultado = numero_1 / numero_2;
-            break;
-        case 'm' :
-            resultado = numero_1 * numero_2;
-            break;
+        if (i%2!=0)
+        {
+            for (i_2=0; i_2 <n; i_2++)
+            {
+                if(i_2%2!=0)
+                {
+                    printf("*");
+                }
+                else
+                {
+                    printf(" ");
+                }
+            }
+        }
+        else
+        {
+            for (i_3=0 ; i_3<n ; i_3++)
+            {
+                if(i_3%2==0)
+                {
+                    printf("*");
+                }
+                else
+                {
+                    printf(" ");
+                }
+                
+            }
+        }
+        printf("\n");
+        
     }
     
-    printf("el resultado es %f", resultado);
-
-    return 0;
+    
 }
+
