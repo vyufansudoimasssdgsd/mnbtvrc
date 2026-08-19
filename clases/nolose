@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <math.h>
+
+#define size 4
+
+int main()
+{
+	long int vector [size],i;
+	
+	for (i=0 ; i<size ; i++)
+	{
+		vector[i] = rand();
+		printf("aja %ld ",vector[i]);
+	}
+	
+	return 0;
+	
+	
+	
+	
+}
