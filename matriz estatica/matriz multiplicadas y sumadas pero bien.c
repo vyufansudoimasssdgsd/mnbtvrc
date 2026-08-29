@@ -8,9 +8,11 @@
 
 int main()
 {
-    int A[N][M], B[M][P], C[N][P], D[N][P];
+    int A[N][M], B[M][P], C[N][P], D[N][P], C_2[N][P];
     
-    int i,j,k,n,s_mult;
+    int i,j,k,n,s_mult,flag;
+    
+    flag=1; // Para ver si al sumar C con E/0 cambia, compararndo con C_2  
     
     srand(time(NULL));
     
@@ -69,7 +71,7 @@ int main()
     printf("Multiplicacion de las matrices\n");
     printf("-------------------\n");
     
-    // AJAJJAJJAJAJA, estaba 90% bien 
+    // AJAJJAJJAJAJA, estaba 90% bien, digo, multiplicar A y B en matriz D[N][P]
     
     for (i=0 ; i<N ; i++) // este hace que cambie de fila de matriz izq
     {
@@ -87,6 +89,42 @@ int main()
     }
     //Costo, pero se pudo burro
     
+    // Sumar a C[N][P] una matriz vacia (E[N][P]) e ir comparando si hay algun cambio
     
+    //1ero poblar E de 0's
     
+    int E[N][P] = {} ; // creo que era asi 
+    
+    //sumarlas y printear, me robe el codigo de arriba
+    
+    printf("-------------------\n");
+    printf("Sumar C con 0 a ver si pasa algo\n");
+    printf("-------------------\n");
+    
+    for (i=0 ; i< N ; i++)
+    {
+        for (j=0 ; j< M ; j++)
+        {
+            C_2[i][j]=C[i][j]+E[i][j];
+            
+            if (C_2[i][j] != C[i][j])
+            {
+                flag=0;
+            }
+            printf("%i ",C_2[i][j]);
+        }
+        printf("\n");
+    }
+    
+    printf("-------------------\n");
+    
+    if (flag)
+    {
+        printf("Bien, sumar 0 a algo sigue siendo ese mismo algo");
+    }
+    else
+    {
+        printf("ERROR");
+    }
+    printf("-------------------\n");
 }
