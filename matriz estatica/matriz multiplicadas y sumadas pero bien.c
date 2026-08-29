@@ -93,7 +93,7 @@ int main()
     
     //1ero poblar E de 0's
     
-    int E[N][P] = {} ; // creo que era asi 
+    int E[N][P] = {} ; // creo que era asi para llenarlo con 0, tambien es asi -> {0}
     
     //sumarlas y printear, me robe el codigo de arriba
     
