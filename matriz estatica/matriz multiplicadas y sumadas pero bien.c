@@ -8,7 +8,7 @@
 
 int main()
 {
-    int A[N][M], B[M][P], C[N][M], D[N][P];
+    int A[N][M], B[M][P], C[N][P], D[N][P];
     
     int i,j,k,n,s_mult;
     
@@ -69,22 +69,23 @@ int main()
     printf("Multiplicacion de las matrices\n");
     printf("-------------------\n");
     
-    for (i=0 ; i<N ; i++)
+    // AJAJJAJJAJAJA, estaba 90% bien 
+    
+    for (i=0 ; i<N ; i++) // este hace que cambie de fila de matriz izq
     {
-        s_mult=0;
-        
-        for (j=0 ; j<P ; j++)
+        for (j=0 ; j<P ; j++) // cambiar de columna en matriz derecha
         {
-            for(k=0 ; k<M-1 ; k++)
+            s_mult=0;
+            for(k=0 ; k<M ; k++) // cambiar cuales se estan multiplicando
             {
-                s_mult+=A[i][k] + B[k][j];
+                s_mult+=A[i][k] * B[k][j];
             }
             D[i][j]=s_mult;
             printf("%i ",D[i][j]);
         }
         printf("\n");
     }
-    
+    //Costo, pero se pudo burro
     
     
     
