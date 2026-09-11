@@ -25,35 +25,29 @@ int main()
         
         //1 pasar de string a vector, xD , ya es un vector en si 
         
-        //2 hacer un for que avance de izq a der 
         contador_negros=0;
-        multiplo_k=1;
+        multiplo_k=0;
         acumulador_k=0;
         printf("---------------------------------\n");
-        for(j=0;j<n;j++){
+        for(j=0;j<n;j++){  //2 hacer un for que avance de izq a der 
+        
             //3 si en el for se detecta una negra contador de cuantos hay seguidos
             if(s[j] == 'B'){
-                printf("inicio o sigue cadena\n");
                 contador_negros+=1;
             }
             else if(s[j] == 'W' && contador_negros !=0){
-                printf("se acabo la cadena\n");
                 //4 si se detecta todos seguidos, segun el k "cambiarlos" (calcular)
                 
                 while(contador_negros - (k*multiplo_k) >= 0){
-                    printf("a ver cuantas veces entra k en el contador\n");
                     multiplo_k+=1;
                     acumulador_k+=1;
                 }
-                printf("a guardar al general y me voy\n");
                 //5 si ya se paso el paso 4, saltar con i todos los innecesarios y seguir buscando (i+ k*veces ocupados de k);
                 i+=multiplo_k;
-                
-                multiplo_k=1;
+                multiplo_k=0;
                 contador_negros=0;
             }
             else if(s[j] == 'W' && contador_negros == 0){
-                printf("aca no pasa nada\n");
             }
             
             
