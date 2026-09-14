@@ -2,6 +2,7 @@
 
 int main()
 {
+    //https://codeforces.com/problemset/problem/1873/D
     int t,i,j;
     long n,k,contador_negros,multiplo_k,acumulador_k;
     
