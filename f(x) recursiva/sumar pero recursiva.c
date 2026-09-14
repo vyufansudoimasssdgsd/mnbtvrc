@@ -9,7 +9,7 @@ int sumar(int a,int b)
     }
     else{
         printf("%i %i \n",a,b);
-        return sumar((a+1),(b-1));
+        sumar((a+1),(b-1)); //no es necesario poner return para que sea recursiva
     }
     
 }
