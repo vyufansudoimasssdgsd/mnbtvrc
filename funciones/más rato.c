@@ -9,48 +9,55 @@ int buscar_grande(int A[],int n)
     for(i=0;i<n;i++){
         if(A[i] != 0){
             izq=A[i];
+            break;
         }
     }
-    
     //buscar el 1er numero de der a izq != 0
-    
-    for(i=n;i>0;i--){
+    for(i=n;i>=0;i--){
         if(A[i] != 0){
             der=A[i];
+            break;
         }
     }
-    
     if(izq > der){
         
         return izq;
         
     }
-    if(izq < der){
+    else if(izq < der){
         
         return der;
         
     }
-    
+    else {
+        return der;
+    }
 }
-
-int sumar_sereja_dima()
 
 
 int main()
 {
-    int i,n;
+    int i,n,resultado;
     
     //http://codeforces.com/problemset/problem/381/A
     
     printf("Ingrese la cantidad de numeros a ver ");
     scanf("%i",&n);
     
-    in A[n];
-    
+    int A[n];
+    //aca como lo pasa con espacios, es necesario hacer un for 
     printf("ingrese el string con los numeros en si ");
-    scanf(" %s",A); //recordar vectores sin &
     
-    comparar_en_si(A,n);
+    for(i=0;i<n;i++){ //nose como, pero eso es solo 1 linea 
+        scanf(" %d",&A[i]); //recordar vectores sin &
+    }
+    
+    
+    resultado=buscar_grande(A,n);
+    
+    printf("aja %i",resultado);
+
+
 
     return 0;
 }
