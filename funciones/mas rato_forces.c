@@ -14,31 +14,29 @@ int crear_secuencia(long A[],long B[],int n)
         for(i=0;i<n;i++){
             if(i%2==0){
                 B[i]=A[sube];
-                printf("%i ",B[i]);
+                printf("%ld ",B[i]);
                 sube++;
             }
             else{
                 B[i]=A[baja];
-                printf("%i ",B[i]);
+                printf("%ld ",B[i]);
                 baja--;
             }
         }
         printf("\n");
     }
     
-    else{// si es asimetrico izq > der, simetrico == 
+    else{// si es asimetrico izq > der, simetrico ==, NOOOO, en verdad son los mismo xD 
         // a medida que se la paso a otro vector, ocupar 2, uno sube y un baja
         for(i=0;i<n;i++){
-            if(i==n-1){
-            }
-            else if(i%2==0){
+            if(i%2==0){
                 B[i]=A[sube];
-                printf("%i ",B[i]);
+                printf("%ld ",B[i]);
                 sube++;
             }
             else{
                 B[i]=A[baja];
-                printf("%i ",B[i]);
+                printf("%ld ",B[i]);
                 baja--;
             }
         }
