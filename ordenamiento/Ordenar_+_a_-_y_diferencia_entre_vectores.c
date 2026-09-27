@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+//https://codeforces.com/problemset/problem/339/A
 void llenar_vector(int A[], int n)
 {
     int i,dato;
