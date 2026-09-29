@@ -2,6 +2,7 @@
 
 int encontrar_subcadena_mayor(int cadena_sushi[], int n, int es_reves)
 {
+    //https://codeforces.com/problemset/problem/1138/A
     // izq-der == 0, der_izq == 1
     //ir desde izq a der la lista, ver la primera aparicion de 2
     int i,contador_1,contador_2,flag_1,flag_2,max;
