@@ -21,7 +21,7 @@ int str_a_n (char *A, int posicion)
 
 int main()
 {
-	//escanear los 2 tamaños iniciales de los vectores
+	//escanear los 2 tamaÃ±os iniciales de los vectores
 	
 	int size_1,size_2;
 	
@@ -69,7 +69,7 @@ int main()
 		
 		//para eso podemos hacer tabla de if, pero en f(x)
 		
-		//al leer añadir el puntaje en la posicion del jugador
+		//al leer aÃ±adir el puntaje en la posicion del jugador
 		pos_1=str_a_n(input_1,0);
 		pos_2=str_a_n(input_2,0);
 		
