@@ -42,7 +42,7 @@ void registrar_clases (tipoClase *a)
     
 }
 
-ver_choques ( tipoClase *a , int size_vector)
+void ver_choques ( tipoClase *a , int size_vector)
 {
     //hacer un vector que guarde inicio y final
     
@@ -51,27 +51,50 @@ ver_choques ( tipoClase *a , int size_vector)
     for(int i=0;i<size_vector;i++){
         
         //unir la hora y los minuos a un numero de 3 cifras
-        horas_minutos[k] = (a->inicio.hora)*100 + (a->inicio.minuto);
-        k++
-        horas_minutos[k] = (a->inicio.hora)*100 + (a->inicio.minuto);
-        k++
+        horas_minutos[k] = (a[i].inicio.hora)*100 + (a[i].inicio.minuto);
+        k++;
+        horas_minutos[k] = (a[i].final.hora)*100 + (a[i].final.minuto);
+        k++;
     }
-    //revisar si hay cosas que se repitan haciendo busqueda 
+    //revisar si hay cosas que se repitan
+    
+    //buscar x, si lo pilla aparte de esa ubicacion break y mal, sino, seguir
+    
+    int flag_repetido=0;
+    
+    for(int i=0 ; i<size_vector*2 ; i++)
+    {
+        int temporal = horas_minutos[i];
+        for(int j=i+1;j<size_vector*2;j++)
+        {
+            if(temporal == horas_minutos[j]){
+                flag_repetido=1;
+                printf("Se encontro un choque de horario \n");
+                break;
+            }
+        }
+        if(flag_repetido)break;
+    }
+    if(flag_repetido == 0){
+        printf("No se encontro ningun choque");
+    }
+    
     
 }
 
 int main()
 {
     //inicializar vector con clases
-    int size_vector=1;
-    tipoClase *vector = (tipoClase *) malloc(sizeof(tipoClase) * size_vector);
-    if(vector == NULL) return EXIT_FAILURE;
+    int size_vector=0;
+    tipoClase *vector = NULL;
     
     //escanear por 1era vez fuera del for 
     
     tipoClase clase_temporal;
     
     registrar_clases(&clase_temporal);
+    
+    int entro_while=0;
     
     while(strcmp(clase_temporal.nombre,"-1") != 0){
         
@@ -93,13 +116,16 @@ int main()
         //pedir nueva lectura
         
         registrar_clases(&clase_temporal);
+        
+        //confirmar que entro al while y leyo daots, para luego compararlos
+        entro_while=1;
     }
     
     //ver si hay choques de horario, suponiendo que estamos en la PUCV
     
     //osea que tenemos horarios fijos, por lo tanto solo tengo que ver si hay coincidentes
     
-    
+    if(entro_while) ver_choques(vector, size_vector);
     
     free(vector);
     
