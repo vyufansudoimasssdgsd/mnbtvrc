@@ -27,3 +27,7 @@ int main()
     printf("Leidos == %i",contador_a);
     return 0;
 }
+
+/*TXT->entrada_cre
+aaaaaaaaaaaaaaaaaaaaaa
+*/
