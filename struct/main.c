@@ -120,7 +120,8 @@ int main()
         printf("1-Agregar Pokemon (disponible gen1,2,3)\n");
         printf("2-Ver estado pokemon elegido\n");
         printf("3-Combatir pokemones\n");
-        printf("4-Terminar ejecucion\nElijo... ");
+        printf("4-Revivir Maximo + Restaura todo\n")
+        printf("5-Terminar ejecucion\nElijo... ");
         scanf("%i",&input_usuario);
         
         if(input_usuario == 1){
@@ -139,17 +140,21 @@ int main()
             char pokemon_elegido_2[30];
             printf("Ingrese pokemon_1 (atacante)");
             scanf(" %29[^\n]",pokemon_elegido_1);
-            //buscarlo en el txt y hacerlo coincidir, o decir si no (while)
+            //buscarlo en el txt y hacerlo coincidir, o decir si no (while), tambien decir si esta KO
             
             printf("Ingrese pokemon_2 (defensor)");
             scanf(" %29[^\n]",pokemon_elegido_2);
-            //buscarlo en el txt y hacerlo coincidir, o decir si no (while)
-            
-            
-            
+            //buscarlo en el txt y hacerlo coincidir, o decir si no (while), tambien decir si esta KO
             
         }
-    }while (input_usuario != 4);
+        if(input_usuario == 4){
+            char pokemon_elegido[30];
+            printf("ingrese el pokemon a tratar\n");
+            scanf(" %29[^\n]",pokemon_elegido);
+            //buscarlo en el txt y hacerlo coincidir, o decir si no (while)
+            
+        }
+    }while (input_usuario != 5);
     
     
     return 0;
