@@ -1,0 +1,27 @@
+    ataque lista_ataques[25] = {
+        {"Placaje", "normal", 40.0, 5},          // Índice 0
+        {"Ascuas", "fuego", 40.0, 10},           // Índice 1
+        {"Pistola_Agua", "agua", 40.0, 10},      // Índice 2
+        {"Latigazo", "planta", 45.0, 10},        // Índice 3
+        {"Impactrueno", "electrico", 40.0, 15},  // Índice 4
+        {"Lanzarrocas", "roca", 50.0, 15},       // Índice 5
+        {"Terremoto", "tierra", 100.0, 20},      // Índice 6
+        {"Picadura", "insecto", 60.0, 10},       // Índice 7
+        {"Beso_Drenaje", "hada", 50.0, 15},      // Índice 8
+        {"Golpe_Karate", "lucha", 50.0, 10},     // Índice 9
+        {"Puya_Nociva", "veneno", 15.0, 5},      // Índice 10
+        {"Lanzallamas", "fuego", 90.0, 20},      // Índice 11
+        {"Hidrobomba", "agua", 110.0, 25},       // Índice 12
+        {"Rayo_Solar", "planta", 120.0, 30},     // Índice 13
+        {"Trueno", "electrico", 110.0, 25},      // Índice 14
+        {"Avalancha", "roca", 75.0, 15},         // Índice 15
+        {"Golpe_Cabeza", "normal", 70.0, 15},    // Índice 16
+        {"Tijera_X", "insecto", 80.0, 15},       // Índice 17
+        {"Fuerza_Lunar", "hada", 95.0, 20},      // Índice 18
+        {"Patada_Salta", "lucha", 100.0, 20},    // Índice 19
+        {"Bomba_Lodo", "veneno", 90.0, 20},      // Índice 20
+        {"Disparo_Lodo", "tierra", 55.0, 10},    // Índice 21
+        {"Chispa", "electrico", 65.0, 15},       // Índice 22
+        {"Colmillo_Igneo", "fuego", 65.0, 15},   // Índice 23
+        {"Psicoataque", "psiquico", 90.0, 15}    // Índice 24
+    };
