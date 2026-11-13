@@ -11,24 +11,24 @@ typedef struct
     char nombre[30];
     char tipo[20];
     float poder;
-    int costo_energia;
+    int costo_energia; //restar a PE
 } ataque;
 
 typedef struct
 {
     char nombre[30];
     char tipo[20];
-    float PV;
+    float PV; //PV, puntos vida
     int PE; //PE, puntos energia
     ataque mov_1;
     ataque mov_2;
 } pokemon;
 
-int* leer_ataques()
+ataque* leer_ataques()
 {//10. Implemente una funcion leer_ataques() 
 //que genere un array de 25 ataques, a partir del archivo ataques.txt.
-    //crear vector dinamico
     
+    //crear vector dinamico
     ataque *vector_ataques = NULL;
     
     //abrir archivo
@@ -39,26 +39,32 @@ int* leer_ataques()
     }
     
     //leer cada parte con fscanf
-    
     ataque temporal_at;
     int size_vector=-1;
     while ( fscanf(archivo, "%s %s %f %i",
         temporal_at.nombre,temporal_at.tipo, //guardar en temporal
         &temporal_at.poder,&temporal_at.costo_energia) == 4 )
         {
+            //size ++
             size_vector++;
+            
+            //realloc
+            ataque *temporal_fallo = (ataque *) realloc (vector_ataques,sizeof(ataque) * (size_vector+1) );
+            if(temporal_fallo == NULL) {
+                free(vector_ataques);
+                return NULL; //revisar si se puede esto y antes
+            }
+            
+            vector_ataques = temporal_fallo; 
+            //guardar array de ataques de f(x) 
+            vector_ataques[size_vector] = temporal_at;
         }
     
-    //size+1 y guardar array
+    //cerrar el archivo 
+    fclose(archivo);
     
-    //realloc
-    ataque *temporal_fallo = (ataque *) realloc (vector_ataques,sizeof(ataque) * (size_vector+1) );
-    if(temporal_fallo == NULL) return NULL; //revisar si se puede esto y antes
-    
-    vector_ataques=temporal_fallo;
-    
-    //guardar en dinamico
-    vector_ataques[size_vector] = temporal_at;
+    //devlver el vector lleno 
+    return vector_ataques;
     
 }
 
@@ -101,8 +107,8 @@ void simularCombate(pokemon *p1, pokemon *p2)    //tengo que pasar por referenci
 
     //es como hacer combate, energia se quita a quien lo tira y poder al otro
     
-    //ver lo de simular el clima, segun rand que salgan 1 de 4 
-    //rand()%4 0 a 3 c/u 
+    //ver lo de simular el clima, segun rand que salgan 1 de 4
+    //rand()%4 0 a 3 c/u
     
     int clima=rand()%4;
     if (clima == 0) printf("[CLIMA ACTUAL: SOLEADO]\n");
@@ -160,9 +166,6 @@ void simularCombate(pokemon *p1, pokemon *p2)    //tengo que pasar por referenci
     else printf("El pokemon %s le quedan %.2f PV, el combate sigue en pie\n",p2->nombre,p2->PV);
 }
 
-
-
-
 int main()
 {
     srand(time(NULL));
@@ -170,11 +173,12 @@ int main()
     pokemon muk = {"Muk", "veneno", 414, 50, {"PLACAJE","normal",10,2},{"Fuerza","normal",30,5}}; 
     pokemon mew = {"Mew", "psiquico", 404, 60, {"PLACAJE","normal",10,2},{"Trasnformacion","psiquico",0,5}}; 
     int input_usuario;
-    //aca leer ataques y pokedex
-    int *vector_ataques = leer_ataques();
-    if(vector_ataques == NULL) return EXIT_FAILURE;
     
-    //if leer_ataques == -1, exit_failure
+    //aca leer ataques y pokedex
+    
+    //leer ataque de txt
+    ataque *vector_ataques = leer_ataques();
+    if( vector_ataques == NULL) return EXIT_FAILURE;
     
     do{
         printf("-----------------MENU----POKEMON-----------------\n");
@@ -183,7 +187,11 @@ int main()
         printf("3-Combatir pokemones\n");
         printf("4-Revivir Maximo + Restaura todo\n");
         printf("5-Terminar ejecucion\nElijo... ");
-        scanf("%i",&input_usuario);
+        
+        if (scanf("%i", &input_usuario) != 1) {
+            while(getchar() != '\n'); // Limpia el buffer
+            input_usuario = 0; // Para que no se salga
+        }
         
         if(input_usuario == 1){
             printf("funicon por añadir\n");
@@ -217,7 +225,6 @@ int main()
         }
     }while (input_usuario != 5);
     
-    simularCombate(&muk,&mew);
-    mostrarEstado(muk);
+    free(vector_ataques);
     return 0;
 }
