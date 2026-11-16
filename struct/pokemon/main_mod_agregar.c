@@ -412,7 +412,7 @@ int sumar_pokemon(pokemon *vector_pokemon, int tamano_p)
     
     //printear lista de ataques
     
-    printf("Ataques disponibles:\n");
+    printf("Los pokemones tiene 2 movimientos\nAtaques disponibles 1:\n");
     
     FILE *archivo= fopen("ataques.txt","rt");
     if(archivo == NULL) return -1;
@@ -425,10 +425,17 @@ int sumar_pokemon(pokemon *vector_pokemon, int tamano_p)
         i++;
     }
     
+    do{
+        printf("Ingrese el numero del ataque 1:");
+        scanf(" %i",&nuevo_pokemon.ind_1);
+    }while (nuevo_pokemon.ind_1 < 0 || nuevo_pokemon.ind_1 > 35);
+    
+    printf("Ingrese el numero del ataque 1:");
+    scanf(" %i",&nuevo_pokemon.ind_1);
     
     
-    //que ingrese el numero de index del ataque y de ahi ctr c a lo de pokedex 
-    
+    printf("Ingrese el numero del ataque 1:");
+    scanf(" %i",&nuevo_pokemon.ind_2);
     
 }
 
