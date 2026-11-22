@@ -487,7 +487,7 @@ int main()
 
 	do {
 		printf("\n-----------------MENU----POKEMON-----------------\n");
-		printf("1-Agregar Pokemon (disponible gen1,2,3)\n");
+		printf("1-Agregar Pokemon (disponible gen1)\n");
 		printf("2-Ver estado pokemon elegido\n");
 		printf("3-Combatir pokemones\n");
 		printf("4-Terminar ejecucion\nElijo... ");
