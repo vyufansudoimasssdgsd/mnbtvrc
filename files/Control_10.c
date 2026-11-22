@@ -33,8 +33,8 @@ int main()
 		}
 	}
 	
-	printf("\nEl promedio de minutos caídos considerando todos los servidores del archivo es %.2f\n",minutos_caidos_total/contador_casos);
-	printf("La cantidad total de servidores afectados en la región de América es de %i\n",contador_america);
+	printf("\nEl promedio de minutos caÃ­dos considerando todos los servidores del archivo es %.2f\n",minutos_caidos_total/contador_casos);
+	printf("La cantidad total de servidores afectados en la regiÃ³n de AmÃ©rica es de %i\n",contador_america);
 	
 	
 	fclose(archivo);
