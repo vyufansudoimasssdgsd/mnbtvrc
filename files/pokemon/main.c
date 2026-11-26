@@ -154,7 +154,7 @@ void mostrarEstado(pokemon vector_pokemon[], char p_ingresado[], int tamano_p)
 }
 
 int tipo_segun_clima(char tipo_mov[],int clima)
-{
+{ //Deberia agregar todos los tipos de 1era generacion
 	if(clima == 0) { //0 = soleado
 		if(strcmp(tipo_mov,"planta") == 0)return 1;
 		if(strcmp(tipo_mov,"fuego") == 0)return 1;
@@ -183,6 +183,8 @@ int tipo_segun_clima(char tipo_mov[],int clima)
 }
 
 void simular_ataque(pokemon *p1, pokemon *p2, int mov_elegido, int clima)
+//EN simular_ataque si es que añade lo de "barra de mana" a los pokemones, deberia añadir "COMBATE"
+//lo de combate por turnos dejarlo como random porque o sino se vuelve más largo
 {
 	if(mov_elegido == 1) {
 		if( (p1->PE - p1->mov_1.costo_energia) >= 0) {
@@ -449,7 +451,7 @@ int sumar_pokemon(pokemon **vector_pokemon, int* tamano_p, int tamano_at ,ataque
     if(archivo == NULL) return -1;
     fprintf(archivo, "%s %s %.0f %i %i %i\n", nuevo_pokemon.nombre, nuevo_pokemon.tipo, nuevo_pokemon.PV, nuevo_pokemon.PE, nuevo_pokemon.ind_1, nuevo_pokemon.ind_2);
     
-    //realloc 
+    //realloc para añadir al vector con los datos dentro del codigo 
     pokemon *temporal_vector = realloc(*vector_pokemon, sizeof(pokemon) * ((*tamano_p)+1));
     if(temporal_vector == NULL){
         fclose(archivo);
